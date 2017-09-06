@@ -1,3 +1,5 @@
-<p>
-  quote works!
-</p>
+
+<blockquote *ngIf="quote">
+  <p>{{ quote.quote }}</p>
+  <footer>— <a href="{{ quote.permalink }}" target="_blank">{{ quote.author }}</a></footer>
+</blockquote>

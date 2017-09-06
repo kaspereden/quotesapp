@@ -1,8 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { MainComponent } from './components/main/main.component';
-import { QuoteComponent } from './components/quote/quote.component';
+import {MainComponent} from './components/main/main.component';
+import {QuoteComponent} from './components/quote/quote.component';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -10,9 +11,11 @@ import { QuoteComponent } from './components/quote/quote.component';
     QuoteComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [MainComponent]
 })
-export class QuoteAppModule { }
+export class QuoteAppModule {
+}
