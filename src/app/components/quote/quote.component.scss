@@ -1,11 +1,26 @@
 blockquote {
-  font-size: 50px;
+  font-size: 30px;
   text-align: left;
-  font-family: Chalkduster;
+  font-family: "Comic Neue", Chalkduster, "Bookman Old Style";
+  max-width: 750px;
+  margin: 0 auto;
+  font-style: italic;
+  position: relative;
+
+  &:before {
+    content: '“';
+    display: block;
+    position: absolute;
+    left: -50px;
+    top: 0;
+    font-family: "Trebuchet MS", Tahoma;
+    font-size: 50px;
+
+  }
 
   footer {
     text-align: right;
-    font-size: 20px;
+    font-size: 16px;
     font-family: "Trebuchet MS", Tahoma;
   }
 }

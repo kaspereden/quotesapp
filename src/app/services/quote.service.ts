@@ -21,3 +21,6 @@ export class QuoteService {
       });
   }
 }
+
+// alternate endpoint:
+// http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback
