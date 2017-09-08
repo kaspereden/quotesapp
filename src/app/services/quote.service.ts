@@ -4,7 +4,6 @@ import 'rxjs/add/operator/toPromise';
 import {Quote} from '../models/quote';
 
 
-
 @Injectable()
 export class QuoteService {
   serviceUri: string = 'http://quotes.stormconsultancy.co.uk/';
@@ -15,14 +14,17 @@ export class QuoteService {
   constructor(private http: Http) {
   }
 
-  /**
-   *
-   * @returns {Promise<TResult2|TResult1>}
-   */
   getRandomQuote(): Promise<Quote> {
     return this.http.get(this.serviceUri + this.quoteTypes.random)
       .toPromise().then((response) => {
         return response.json();
+      }, () => {
+        return {
+          id: 0,
+          permalink: '/',
+          quote: 'failed, the resource has',
+          author: 'Yoda'
+        };
       });
   }
 }
