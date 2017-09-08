@@ -1,0 +1,11 @@
+
+.block {
+  border: 1px solid #effeef;
+  box-shadow: 0 0 5px #dedede;
+  max-width: 750px;
+  margin: 0 auto;
+
+  &:hover {
+    background-color: #effeef;
+  }
+}
