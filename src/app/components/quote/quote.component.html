@@ -1,5 +1,5 @@
 
-<blockquote *ngIf="quote">
+<blockquote *ngIf="quote" (click)="update()">
   <p>{{ quote.quote }}</p>
   <footer>— <a href="{{ quote.permalink }}" target="_blank">{{ quote.author }}</a></footer>
 </blockquote>

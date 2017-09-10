@@ -22,4 +22,11 @@ export class QuoteComponent implements OnInit {
     });
   }
 
+  update() {
+    setTimeout(() => {
+      this.quoteService.getRandomQuote().then((quote: Quote) => {
+        this.quote = quote;
+      });
+    }, 600);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'qa-root',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  title = 'app';
+  flippedClass: string = '';
+
+  flip() {
+    if (this.flippedClass === '') {
+      this.flippedClass = 'block--flipped';
+    } else {
+      this.flippedClass = '';
+    }
+
+    // @TODO: after flip update quote instead of using timout
+  }
 }

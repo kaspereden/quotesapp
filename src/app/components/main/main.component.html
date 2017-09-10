@@ -1,4 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="block">
-  <qa-quote></qa-quote>
+<div class="block__container">
+  <div class="block {{flippedClass}}" (click)="flip()">
+    <div class="block__front">
+      <qa-quote></qa-quote>
+    </div>
+    <div class="block__back">
+      <qa-quote></qa-quote>
+    </div>
+  </div>
 </div>

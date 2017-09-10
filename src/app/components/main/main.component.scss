@@ -1,11 +1,84 @@
+:host {
+  perspective: 800px;
+}
+
+
+//.block {
+  //border: 1px solid #effeef;
+  //box-shadow: 0 0 5px #dedede;
+  //max-width: 750px;
+  //margin: 100px auto;
+  //cursor: pointer;
+//
+//  transform: rotateX(0) rotateY(0);
+//  transform-style: preserve-3d;
+//  //backface-visibility: hidden;
+//  transition: all .4s ease-in-out;
+//  perspective: 1000px;
+//
+//  &:hover {
+//    background-color: #effeef;
+//    transform: rotate3D(-30deg);
+//    transform-style: preserve-3d;
+//    //backface-visibility: hidden;
+//    transition: all .4s ease-in-out;
+//
+//  }
+//
+//  &--transform {
+//    .block__back {
+//      transform: rotateY(180deg);
+//      backface-visibility: hidden;
+//    }
+//    .block__front {
+//      backface-visibility: hidden;
+//    }
+//  }
+//}
+
+.block__container {
+  transition: all .3s ease;
+  perspective: 500px;
+}
 
 .block {
-  border: 1px solid #effeef;
-  box-shadow: 0 0 5px #dedede;
+  //border: 1px solid #effeef;
+  //box-shadow: 0 0 5px #dedede;
   max-width: 750px;
-  margin: 0 auto;
+  width: 750px;
+  margin: 100px auto;
+  cursor: pointer;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
 
-  &:hover {
-    background-color: #effeef;
+.block.block--flipped {
+  transform: rotateY(180deg);
+
+
+  .block__front {
+    opacity: 0;
   }
+
+  .block__back {
+    opacity: 1;
+  }
+}
+
+.block .block__front,
+.block .block__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: opacity 0.6s ease;
+}
+
+.block .block__front {
+  opacity: 1;
+}
+
+.block .block__back {
+  transform: rotateY(180deg);
+  opacity: 0;
 }
