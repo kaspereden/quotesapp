@@ -8,7 +8,8 @@ import {Quote} from '../models/quote';
 export class QuoteService {
   serviceUri: string = 'http://quotes.stormconsultancy.co.uk/';
   quoteTypes: any = {
-    random: 'random.json'
+    random: 'random.json',
+    number: 'quotes/[num].json'
   };
 
   constructor(private http: Http) {
@@ -27,7 +28,20 @@ export class QuoteService {
         };
       });
   }
+
+  getQuote(number: number): Promise<Quote> {
+    const url = this.serviceUri + this.quoteTypes.number.replace('[num]', number);
+    return this.http.get(url)
+      .toPromise().then((response) => {
+        return response.json();
+      }, () => {
+        return {
+          id: 0,
+          permalink: '/',
+          quote: 'failed, the resource has',
+          author: 'Yoda'
+        };
+      });
+  }
 }
 
-// alternate endpoint:
-// http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback
