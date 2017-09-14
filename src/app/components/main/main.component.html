@@ -1,10 +1,10 @@
 <div class="block__container">
   <div class="block {{flippedClass}}" (click)="flip()">
     <div class="block__front">
-      <qa-quote></qa-quote>
+      <qa-quote [quoteId]="frontId" (change)="frontUpdated($event)"></qa-quote>
     </div>
     <div class="block__back">
-      <qa-quote></qa-quote>
+      <qa-quote (change)="backUpdated($event)"></qa-quote>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {QuoteService} from '../../services/quote.service';
 import {Quote} from '../../models/quote';
 
@@ -13,20 +13,28 @@ export class QuoteComponent implements OnInit {
 
   quote: Quote;
 
+  @Output() change: EventEmitter<any> = new EventEmitter();
+  @Input() quoteId: number;
+
   constructor(private quoteService: QuoteService) {
   }
 
   ngOnInit() {
-    this.quoteService.getRandomQuote().then((quote: Quote) => {
-      this.quote = quote;
+    this.quoteService.getQuote(this.quoteId).then((quote) => {
+      this.setQuote(quote);
     });
   }
 
   update() {
     setTimeout(() => {
-      this.quoteService.getRandomQuote().then((quote: Quote) => {
-        this.quote = quote;
+      this.quoteService.getRandomQuote().then((quote) => {
+        this.setQuote(quote);
       });
     }, 600);
+  }
+
+  setQuote(quote) {
+    this.quote = quote;
+    this.change.emit({id: this.quote.id});
   }
 }

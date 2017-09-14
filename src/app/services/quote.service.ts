@@ -29,9 +29,8 @@ export class QuoteService {
       });
   }
 
-  getQuote(number: number): Promise<Quote> {
-    const url = this.serviceUri + this.quoteTypes.number.replace('[num]', number);
-    return this.http.get(url)
+  getQuoteById(id: number): Promise<Quote> {
+    return this.http.get(this.serviceUri + this.quoteTypes.number.replace('[num]', id))
       .toPromise().then((response) => {
         return response.json();
       }, () => {
@@ -42,6 +41,14 @@ export class QuoteService {
           author: 'Yoda'
         };
       });
+  }
+
+  getQuote(quoteId: number): Promise<Quote> {
+    if (quoteId) {
+      return this.getQuoteById(quoteId);
+    } else {
+      return this.getRandomQuote();
+    }
   }
 }
 
