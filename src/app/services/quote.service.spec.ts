@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { QuoteService } from './quote.service';
+import {HttpModule} from '@angular/http';
 
 describe('QuoteService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [QuoteService]
+      providers: [QuoteService],
+      imports: [HttpModule]
     });
   });
 

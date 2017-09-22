@@ -4,15 +4,10 @@ import {NgModule} from '@angular/core';
 import {MainComponent} from './components/main/main.component';
 import {QuoteComponent} from './components/quote/quote.component';
 import {HttpModule} from '@angular/http';
-import {RouterModule, Routes} from '@angular/router';
-import { ApprouterComponent } from './components/approuter/approuter.component';
+import {RouterModule} from '@angular/router';
+import {ApprouterComponent} from './components/approuter/approuter.component';
+import {appRoutes} from './approutes';
 
-
-const appRoutes: Routes = [
-  {path: 'quotes/:id', component: MainComponent},
-  {path: 'quotes', component: MainComponent},
-  {path: '', pathMatch: 'full', redirectTo: '/quotes'}
-];
 
 @NgModule({
   declarations: [

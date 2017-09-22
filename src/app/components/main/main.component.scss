@@ -48,7 +48,7 @@
   width: 750px;
   margin: 100px auto;
   cursor: pointer;
-  transition: transform 0.6s;
+  transition: transform 0.6s, width 0.6s;
   transform-style: preserve-3d;
 }
 
