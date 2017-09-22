@@ -5,13 +5,9 @@ import {QuoteComponent} from '../quote/quote.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpModule} from '@angular/http';
 import {ACTIVESTATE} from '../../enums/ACTIVESTATE';
-import {Router} from '@angular/router';
 
-class MockRouter {
-  navigate(obj: Array<string>) {
-    return obj;
-  }
-}
+import {appRoutes} from '../../approutes';
+
 
 describe('MainComponent', () => {
   beforeEach(async(() => {
@@ -20,11 +16,7 @@ describe('MainComponent', () => {
         MainComponent,
         QuoteComponent
       ],
-      imports: [RouterTestingModule, HttpModule],
-      // providers: [{
-      //   provide: Router,
-      //   useClass: MockRouter
-      // }]
+      imports: [RouterTestingModule.withRoutes(appRoutes), HttpModule]
     }).compileComponents();
   }));
 
@@ -40,7 +32,7 @@ describe('MainComponent', () => {
     expect(app.active).toEqual(ACTIVESTATE.front);
   }));
 
-  xit('should render quote block', async(() => {
+  it('should render quote block', async(() => {
     const fixture = TestBed.createComponent(MainComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
