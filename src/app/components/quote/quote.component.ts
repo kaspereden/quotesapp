@@ -40,10 +40,8 @@ export class QuoteComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     for (const propName in changes) {
-      if (changes.hasOwnProperty(propName)) {
-        if (propName === 'doUpdate' && changes[propName].currentValue === true) {
-          this.update();
-        }
+      if (changes.hasOwnProperty(propName) && propName === 'doUpdate' && changes[propName].currentValue === true) {
+        this.update();
       }
     }
   }
