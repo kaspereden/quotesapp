@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ACTIVESTATE} from '../../enums/ACTIVESTATE';
 
-declare const Shake: any;
+
 
 @Component({
   selector: 'qa-main',
@@ -62,15 +62,17 @@ export class MainComponent implements OnInit {
   }
 
   initShake() {
-    const shakeEvent = new Shake({
-      threshold: 10, // optional shake strength threshold
-      timeout: 400 // optional, determines the frequency of event generation
-    });
+    if (window['Shake']) {
+      const shakeEvent = new window['Shake']({
+        threshold: 10, // optional shake strength threshold
+        timeout: 400 // optional, determines the frequency of event generation
+      });
 
-    shakeEvent.start();
+      shakeEvent.start();
 
-    window.addEventListener('shake', () => {
-      this.flip();
-    }, false);
+      window.addEventListener('shake', () => {
+        this.flip();
+      }, false);
+    }
   }
 }
