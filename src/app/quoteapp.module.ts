@@ -18,7 +18,7 @@ import {appRoutes} from './approutes';
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, { useHash: true })
   ],
   providers: [],
   bootstrap: [ApprouterComponent]
