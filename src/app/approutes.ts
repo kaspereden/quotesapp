@@ -1,9 +1,9 @@
 
 import {Routes} from '@angular/router';
-import {MainComponent} from './components/main/main.component';
+import {TileComponent} from './components/main/tile.component';
 
 export const appRoutes: Routes = [
-  {path: 'quotes/:id', component: MainComponent},
-  {path: 'quotes', component: MainComponent},
+  {path: 'quotes/:id', component: TileComponent},
+  {path: 'quotes', component: TileComponent},
   {path: '', pathMatch: 'full', redirectTo: '/quotes'}
 ];

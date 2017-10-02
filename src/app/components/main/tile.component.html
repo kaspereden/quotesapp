@@ -1,9 +1,9 @@
-<div class="block__container">
-  <div class="block {{flippedClass}}" (click)="flip()">
-    <div class="block__front">
+<div class="tile__container">
+  <div class="tile {{flippedClass}}" (click)="flip()">
+    <div class="tile__front">
       <qa-quote [quoteId]="frontId" [doUpdate]="frontDoUpdate" (change)="frontUpdated($event)"></qa-quote>
     </div>
-    <div class="block__back">
+    <div class="tile__back">
       <qa-quote [doUpdate]="backDoUpdate" (change)="backUpdated($event)"></qa-quote>
     </div>
   </div>

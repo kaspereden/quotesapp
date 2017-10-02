@@ -1,6 +1,6 @@
 import {TestBed, async} from '@angular/core/testing';
 
-import {MainComponent} from './main.component';
+import {TileComponent} from './tile.component';
 import {QuoteComponent} from '../quote/quote.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpModule} from '@angular/http';
@@ -9,11 +9,11 @@ import {ACTIVESTATE} from '../../enums/ACTIVESTATE';
 import {appRoutes} from '../../approutes';
 
 
-describe('MainComponent', () => {
+describe('TileComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        MainComponent,
+        TileComponent,
         QuoteComponent
       ],
       imports: [RouterTestingModule.withRoutes(appRoutes), HttpModule]
@@ -21,21 +21,21 @@ describe('MainComponent', () => {
   }));
 
   it('should create the quotes app', async(() => {
-    const fixture = TestBed.createComponent(MainComponent);
+    const fixture = TestBed.createComponent(TileComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 
   it(`should have default active state`, async(() => {
-    const fixture = TestBed.createComponent(MainComponent);
+    const fixture = TestBed.createComponent(TileComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.active).toEqual(ACTIVESTATE.front);
   }));
 
-  it('should render quote block', async(() => {
-    const fixture = TestBed.createComponent(MainComponent);
+  it('should render quote tile', async(() => {
+    const fixture = TestBed.createComponent(TileComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.block__container').textContent).toBeDefined();
+    expect(compiled.querySelector('.tile__container').textContent).toBeDefined();
   }));
 });

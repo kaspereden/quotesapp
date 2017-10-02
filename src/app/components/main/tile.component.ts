@@ -6,10 +6,10 @@ import {ACTIVESTATE} from '../../enums/ACTIVESTATE';
 
 @Component({
   selector: 'qa-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  templateUrl: './tile.component.html',
+  styleUrls: ['./tile.component.scss']
 })
-export class MainComponent implements OnInit {
+export class TileComponent implements OnInit {
   flippedClass: string = '';
   active: ACTIVESTATE = ACTIVESTATE.front;
   frontId: number;
@@ -28,10 +28,13 @@ export class MainComponent implements OnInit {
     });
   }
 
+  /**
+   * Tileflip sets front/back to be active
+   */
   flip() {
     if (this.active === ACTIVESTATE.front) {
       this.frontDoUpdate = true;
-      this.flippedClass = 'block--flipped';
+      this.flippedClass = 'tile--flipped';
       this.active = ACTIVESTATE.back;
     } else {
       this.backDoUpdate = true;
@@ -42,6 +45,12 @@ export class MainComponent implements OnInit {
     this.updateRoute();
   }
 
+  /**
+   * On updated event handler for back side of the tile
+   * (re)set all variables
+   *
+   * @param event
+   */
   frontUpdated(event) {
     this.frontId = event.id;
     this.updateRoute();
@@ -49,6 +58,12 @@ export class MainComponent implements OnInit {
     this.frontDoUpdate = false;
   }
 
+  /**
+   * On updated event handler for back side of the tile
+   * (re)set all variables
+   *
+   * @param event
+   */
   backUpdated(event) {
     this.backId = event.id;
     this.updateRoute();
@@ -56,16 +71,26 @@ export class MainComponent implements OnInit {
     this.backDoUpdate = false;
   }
 
+  /**
+   * On loading a new quote the navigation history gets updated
+   * so you can actually share the link with anyone
+   */
   updateRoute() {
     const nextId = this.active === ACTIVESTATE.front ? this.frontId : this.backId;
     this.router.navigate(['quotes', nextId]);
   }
 
+  /**
+   * Initialize shake functionality
+   *
+   * When you shake the device there will be loaded a new quote
+   * this only works when your device supports the shake api.
+   */
   initShake() {
     if (window['Shake']) {
       const shakeEvent = new window['Shake']({
-        threshold: 10, // optional shake strength threshold
-        timeout: 400 // optional, determines the frequency of event generation
+        threshold: 10,
+        timeout: 400
       });
 
       shakeEvent.start();

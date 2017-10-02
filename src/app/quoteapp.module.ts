@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {MainComponent} from './components/main/main.component';
+import {TileComponent} from './components/main/tile.component';
 import {QuoteComponent} from './components/quote/quote.component';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
@@ -11,7 +11,7 @@ import {appRoutes} from './approutes';
 
 @NgModule({
   declarations: [
-    MainComponent,
+    TileComponent,
     QuoteComponent,
     ApprouterComponent
   ],
