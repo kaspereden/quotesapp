@@ -1,6 +1,6 @@
 
 import {Routes} from '@angular/router';
-import {TileComponent} from './components/main/tile.component';
+import {TileComponent} from './components/tile/tile.component';
 
 export const appRoutes: Routes = [
   {path: 'quotes/:id', component: TileComponent},
