@@ -59,3 +59,9 @@
     margin: 80px 10px;
   }
 }
+
+@media (max-width: 500px) {
+  .tile {
+    margin: 20px auto;
+  }
+}
